@@ -1,0 +1,45 @@
+apiVersion: apps/v1 
+kind: StatefulSet
+metadata:
+  name: gaia
+spec:
+  replicas: 1
+  serviceName: gaia
+  selector:
+    matchLabels:
+      app: gaia
+  template:
+    metadata:
+      labels:
+        app: gaia
+    spec:
+      containers:
+      - name: gaia
+        image: jakeboldbaatar/gaia:v14.2.0
+        ports:
+        - containerPort: 26656
+          name: p2p
+        - containerPort: 26657
+          name: rpc
+        resources:
+          limits:
+            cpu: "1"
+            memory: "512Mi"
+        volumeMounts:
+        - name: gaia-data
+          mountPath: /data
+      volumes:
+      - name: gaia-data
+        persistentVolumeClaim:
+          claimName: gaia-data-pvc
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: gaia-data-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
