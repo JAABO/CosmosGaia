@@ -1,0 +1,14 @@
+Jake
+Boldbaatar
+Python
+Javascript
+C++
+Rust
+Go
+Jenkins
+Kubernetes
+ArgoCD
+Docker
+Helm
+Grafana
+Prometheus

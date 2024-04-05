@@ -1,5 +1,4 @@
-# CosmosGaia
-
+# CosmosGaia:  Dockerfile to run Cosmos Gaia v14.2.0 in container
 ======================================================================================================
 
 Created Dockerfile with 2 stages.
@@ -32,12 +31,30 @@ Cosmos:
     
     https://cosmos.network/
     
-# K8s FTW: 
+# K8s FTW: Kubernetes StatefulSet to run the above, using persistent volume claims and resource limits.  
+======================================================================================================
 
 Created `sts.yaml` file that provisioned to use an `image` that was created in previous task.
 
     https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/
 
+        minikube start
+        
+        kubectl apply -f sts.yaml
 
 
+# Script kiddies: Source or come up with a text manipulation problem and solve it with at least two of awk, sed, tr and / or grep. 
+======================================================================================================
+Created `sort.sh` file that reads input.txt file in the directory using `grep` , `sort` and `awk`.
+- it splits text into array of lines
+- sort the lines in alphavetical order
+- join line array into a string
+- echo the result to the console
 
+# Script grown-ups: Solve the problem in question 3 using any programming language you like.
+======================================================================================================
+Created `sort.py` file  which is python script for sorting the `input.txt` file.
+- read input text from file
+- split input text into an array of lines
+- sort lines in alphabetical order
+- join line array into a string and prints.

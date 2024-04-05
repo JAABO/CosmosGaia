@@ -9,7 +9,7 @@ RUN apt-get update && \
 RUN git clone --branch v14.2.0 --depth 1 https://github.com/cosmos/gaia.git /go/src/github.com/cosmos/gaia
 
 
-
+    
 # Set the working directory
 WORKDIR /go/src/github.com/cosmos/gaia
 
